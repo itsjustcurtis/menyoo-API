@@ -37,10 +37,10 @@ requireEnv("PATREON_CAMPAIGN_ID", PATREON_CAMPAIGN_ID);
 
 const OUTPUT_PATH = path.join(__dirname, "..", "data", "supporters.json");
 
-// Which Patreon tier titles to include in the output, and in what order.
-// Any tier not listed here is ignored (e.g. if you create a test tier on
-// Patreon that shouldn't show up in-game).
-const KNOWN_TIERS = ["Curators", "Directors", "Supporters"];
+// Zero-cost tiers (e.g. a free "Follower" tier) are excluded from output
+// by default, since this feed is meant to reflect paying supporters. Set
+// to false if you want $0 tiers included too.
+const EXCLUDE_FREE_TIERS = true;
 
 async function refreshAccessToken() {
   const res = await fetch("https://www.patreon.com/api/oauth2/token", {
@@ -60,6 +60,18 @@ async function refreshAccessToken() {
   }
 
   const data = await res.json();
+
+  // Patreon rotates refresh tokens: every exchange invalidates the old
+  // refresh token and issues a new one. If we don't capture and persist
+  // this, the *next* run will fail with invalid_grant even though this
+  // run succeeds. Write it to a temp file for the workflow to pick up
+  // and push back into the repo secret.
+  if (data.refresh_token && data.refresh_token !== PATREON_REFRESH_TOKEN) {
+    const rotatedPath = path.join(__dirname, "..", "new_refresh_token.txt");
+    fs.writeFileSync(rotatedPath, data.refresh_token);
+    console.log("Refresh token rotated, wrote new_refresh_token.txt");
+  }
+
   return data.access_token;
 }
 
@@ -127,8 +139,16 @@ function pickDisplayName(member, included) {
 
 function groupByTier(members, included) {
   const tiersById = buildTierMap(included);
+
+  // Discover tiers dynamically from whatever Patreon returns, rather than
+  // relying on a hardcoded allowlist that goes stale the moment a tier is
+  // renamed on Patreon. Ordered highest amount_cents first.
+  const tierList = Object.values(tiersById)
+    .filter((tier) => !EXCLUDE_FREE_TIERS || tier.amountCents > 0)
+    .sort((a, b) => b.amountCents - a.amountCents);
+
   const grouped = {};
-  for (const tierName of KNOWN_TIERS) grouped[tierName] = [];
+  for (const tier of tierList) grouped[tier.title] = [];
 
   for (const member of members) {
     if (member.attributes.patron_status !== "active_patron") continue;
@@ -150,9 +170,9 @@ function groupByTier(members, included) {
   }
 
   // Keep member lists in a stable, readable order.
-  for (const tierName of KNOWN_TIERS) grouped[tierName].sort((a, b) => a.localeCompare(b));
+  for (const tier of tierList) grouped[tier.title].sort((a, b) => a.localeCompare(b));
 
-  return KNOWN_TIERS.map((name) => ({ name, members: grouped[name] }));
+  return tierList.map((tier) => ({ name: tier.title, members: grouped[tier.title] }));
 }
 
 async function main() {
