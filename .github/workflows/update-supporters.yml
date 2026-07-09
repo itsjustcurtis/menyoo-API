@@ -22,3 +22,11 @@ jobs:
           PATREON_REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
         run: node scripts/fetch-supporters.js
+        
+      - name: Commit updated supporters.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/supporters.json
+          git diff --staged --quiet || git commit -m "Update supporter data"
+          git push
