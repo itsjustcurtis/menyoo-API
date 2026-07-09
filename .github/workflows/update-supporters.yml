@@ -17,9 +17,9 @@ jobs:
 
       - name: Fetch supporter data
         env:
-          PATREON_CLIENT_ID: ${{ secrets.PATREON_CLIENT_ID }}
-          PATREON_CLIENT_SECRET: ${{ secrets.PATREON_CLIENT_SECRET }}
-          PATREON_REFRESH_TOKEN: ${{ secrets.PATREON_REFRESH_TOKEN }}
+          PATREON_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          PATREON_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          PATREON_REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
         run: node scripts/fetch-supporters.js
 
@@ -29,7 +29,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           if [ -f new_refresh_token.txt ]; then
-            gh secret set PATREON_REFRESH_TOKEN --body "$(cat new_refresh_token.txt)"
+            gh secret set REFRESH_TOKEN --body "$(cat new_refresh_token.txt)"
             rm new_refresh_token.txt
             echo "Refresh token secret updated."
           fi
