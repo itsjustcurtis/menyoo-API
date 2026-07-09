@@ -17,9 +17,9 @@ jobs:
 
       - name: Fetch supporter data
         env:
-          PATREON_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          PATREON_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          PATREON_REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           PATREON_CAMPAIGN_ID: ${{ secrets.PATREON_CAMPAIGN_ID }}
         run: node scripts/fetch-supporters.js
 
