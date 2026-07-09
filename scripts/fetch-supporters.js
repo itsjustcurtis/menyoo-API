@@ -16,9 +16,9 @@ const fs = require("fs");
 const path = require("path");
 
 const {
-  PATREON_CLIENT_ID,
-  PATREON_CLIENT_SECRET,
-  PATREON_REFRESH_TOKEN,
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REFRESH_TOKEN,
   PATREON_CAMPAIGN_ID,
 } = process.env;
 
@@ -30,9 +30,9 @@ function requireEnv(name, value) {
     process.exit(1);
   }
 }
-requireEnv("PATREON_CLIENT_ID", PATREON_CLIENT_ID);
-requireEnv("PATREON_CLIENT_SECRET", PATREON_CLIENT_SECRET);
-requireEnv("PATREON_REFRESH_TOKEN", PATREON_REFRESH_TOKEN);
+requireEnv("CLIENT_ID", CLIENT_ID);
+requireEnv("CLIENT_SECRET", CLIENT_SECRET);
+requireEnv("REFRESH_TOKEN", REFRESH_TOKEN);
 requireEnv("PATREON_CAMPAIGN_ID", PATREON_CAMPAIGN_ID);
 
 const OUTPUT_PATH = path.join(__dirname, "..", "data", "supporters.json");
@@ -48,9 +48,9 @@ async function refreshAccessToken() {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({
       grant_type: "refresh_token",
-      refresh_token: PATREON_REFRESH_TOKEN,
-      client_id: PATREON_CLIENT_ID,
-      client_secret: PATREON_CLIENT_SECRET,
+      refresh_token: REFRESH_TOKEN,
+      client_id: CLIENT_ID,
+      client_secret: CLIENT_SECRET,
     }),
   });
 
@@ -66,7 +66,7 @@ async function refreshAccessToken() {
   // this, the *next* run will fail with invalid_grant even though this
   // run succeeds. Write it to a temp file for the workflow to pick up
   // and push back into the repo secret.
-  if (data.refresh_token && data.refresh_token !== PATREON_REFRESH_TOKEN) {
+  if (data.refresh_token && data.refresh_token !== REFRESH_TOKEN) {
     const rotatedPath = path.join(__dirname, "..", "new_refresh_token.txt");
     fs.writeFileSync(rotatedPath, data.refresh_token);
     console.log("Refresh token rotated, wrote new_refresh_token.txt");
