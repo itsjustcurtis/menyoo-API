@@ -1,9 +1,10 @@
 {
-  "last_updated": "2026-07-10T11:32:52.819Z",
+  "last_updated": "2026-07-10T13:32:00.221Z",
   "tiers": [
     {
       "name": "Contributor",
       "members": [
+        "greygods",
         "katsutosh",
         "TotoTheTato"
       ]
