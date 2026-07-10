@@ -1,6 +1,12 @@
 {
-  "last_updated": "2026-07-10T05:27:50.163Z",
+  "last_updated": "2026-07-10T09:13:58.261Z",
   "tiers": [
+    {
+      "name": "Contributor",
+      "members": [
+        "katsutosh"
+      ]
+    },
     {
       "name": "Early Access",
       "members": [
