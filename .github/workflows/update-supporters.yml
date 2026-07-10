@@ -1,8 +1,9 @@
 name: Update Supporters
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '36 */1 * * *'
+    - cron: '40 */1 * * *'
 
 jobs:
   fetch:
