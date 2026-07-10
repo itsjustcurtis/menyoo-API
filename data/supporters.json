@@ -1,16 +1,20 @@
 {
-  "last_updated": "2026-07-09T12:55:22.963Z",
+  "last_updated": "2026-07-10T05:27:50.163Z",
   "tiers": [
     {
-      "name": "Curators",
-      "members": []
+      "name": "Early Access",
+      "members": [
+        "Chandler Vick",
+        "irfan rind baloch",
+        "Klau Bs",
+        "PhuzzyFotos",
+        "Simply Chris",
+        "Xtra o Snipes",
+        "Yuya Iwatsuki"
+      ]
     },
     {
-      "name": "Directors",
-      "members": []
-    },
-    {
-      "name": "Supporters",
+      "name": "Supporter",
       "members": []
     }
   ]
