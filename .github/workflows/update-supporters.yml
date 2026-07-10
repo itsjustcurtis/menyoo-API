@@ -3,7 +3,7 @@ name: Update Supporters
 on:
   workflow_dispatch:
   schedule:
-    - cron: "32 */1 * * *"
+    - cron: "34 */1 * * *"
 
 jobs:
   fetch:
