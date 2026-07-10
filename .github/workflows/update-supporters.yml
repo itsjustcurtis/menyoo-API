@@ -1,7 +1,9 @@
 name: Update Supporters
 
 on:
-  workflow_dispatch:   # manual "Run workflow" button, no schedule yet
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'   # every hour, on the hour (UTC)
 
 jobs:
   fetch:
@@ -13,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Fetch supporter data
         env:
