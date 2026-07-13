@@ -175,6 +175,18 @@ function groupByTier(members, included) {
   return tierList.map((tier) => ({ name: tier.title, members: grouped[tier.title] }));
 }
 
+function readExistingTiers(outputPath) {
+  if (!fs.existsSync(outputPath)) return null;
+  try {
+    const existing = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+    return existing.tiers || null;
+  } catch {
+    // Corrupt or unexpected existing file - treat as "no prior data"
+    // so we just write fresh output rather than crashing the run.
+    return null;
+  }
+}
+
 async function main() {
   console.log("Refreshing access token...");
   const accessToken = await refreshAccessToken();
@@ -184,6 +196,12 @@ async function main() {
   console.log(`Fetched ${data.length} member(s).`);
 
   const tiers = groupByTier(data, included);
+  const previousTiers = readExistingTiers(OUTPUT_PATH);
+
+  if (previousTiers && JSON.stringify(previousTiers) === JSON.stringify(tiers)) {
+    console.log("No change in supporter data, leaving existing file untouched.");
+    return;
+  }
 
   const output = {
     last_updated: new Date().toISOString(),
