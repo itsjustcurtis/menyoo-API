@@ -27,16 +27,29 @@ jobs:
 
       - name: Rotate refresh token secret if changed
         if: always()
+        continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           if [ -f new_refresh_token.txt ]; then
-            gh secret set REFRESH_TOKEN --body "$(cat new_refresh_token.txt)"
+            attempt=1
+            max_attempts=5
+            until gh secret set REFRESH_TOKEN --body "$(cat new_refresh_token.txt)"; do
+              if [ "$attempt" -ge "$max_attempts" ]; then
+                echo "::warning::Failed to rotate REFRESH_TOKEN after $max_attempts attempts. Patreon already invalidated the old token this run - the next scheduled run will 401 with invalid_grant until REFRESH_TOKEN is updated manually."
+                exit 1
+              fi
+              wait_time=$((attempt * 15))
+              echo "gh secret set failed (attempt $attempt/$max_attempts), retrying in ${wait_time}s..."
+              sleep "$wait_time"
+              attempt=$((attempt + 1))
+            done
             rm new_refresh_token.txt
             echo "Refresh token secret updated."
           fi
         
       - name: Commit updated supporters.json
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
