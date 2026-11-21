@@ -9,12 +9,14 @@ how old a user's local menyooStuff files are. Memory decides which models exist
 at runtime; this file only supplies names.
 
 Inputs
-  --upstream  checkout of DurtyFree/gta-v-data-dumps (needs peds.json, ObjectList.ini)
+  --upstream  checkout of DurtyFree/gta-v-data-dumps (needs peds.json, ObjectList.ini,
+              weapons.json)
   --baseline  Menyoo's menyooStuff dir (needs PedList.xml, PropList.txt)
   --unknown   optional text file, one hex hash per line (# comments allowed),
               of ped hashes seen in game that no list can name
 
 Output
+  <out>/weapons.json  upstream weapon reference (see build_weapons); not yet read by Menyoo
   <out>/models.json (human-readable, one entry per line)
   {"revision": N,
    "peds":  {"<Category>": [{"name":..., "caption":..., "dlc":..., "inferred": true}, ...], ...},
@@ -47,6 +49,21 @@ MIN_BASELINE_PEDS = 900
 MIN_BASELINE_PROPS = 15000
 MIN_UPSTREAM_PEDS = 900
 MIN_UPSTREAM_OBJECTS = 15000
+
+
+# Upstream weapon Category -> Menyoo weapon category (names as in vCategoryNames).
+GROUP_TO_CATEGORY = {
+    "GROUP_MELEE": "Melee",
+    "GROUP_PISTOL": "Pistols", "GROUP_STUNGUN": "Pistols",
+    "GROUP_SMG": "Submachine Guns", "GROUP_MG": "Machine Guns",
+    "GROUP_RIFLE": "Assault Rifles", "GROUP_SHOTGUN": "Shotguns",
+    "GROUP_SNIPER": "Sniper Rifles", "GROUP_HEAVY": "Heavy Weapons",
+    "GROUP_THROWN": "Throwable Weapons",
+}
+# Groups whose weapons take the standard tint set (matches 107/108 curated weapons).
+TINTABLE_GROUPS = {"GROUP_PISTOL", "GROUP_STUNGUN", "GROUP_SMG", "GROUP_MG", "GROUP_RIFLE",
+                   "GROUP_SHOTGUN", "GROUP_SNIPER", "GROUP_HEAVY"}
+MIN_UPSTREAM_WEAPONS = 100
 
 
 # ---------------------------------------------------------------- joaat ----
@@ -186,6 +203,58 @@ def search_names(targets, known_names):
 
 # ----------------------------------------------------------------- main ----
 
+def build_weapons(up_weapons):
+    """
+    Normalised weapon reference from upstream weapons.json: no translations, stats or
+    descriptions. Vehicle weapons and weapons without a real English label are left out.
+    "category" is the matching Menyoo category ("" when none). "tints" is a guess from
+    the upstream group and tint count: it matched Menyoo's curated data for 107 of 108
+    weapons, but it is a guess, not upstream data. Labels of internal weapons can be
+    unreliable (upstream labels the Garbage Bag and Handcuffs "Knife").
+    """
+    out = []
+    for w in up_weapons:
+        if w.get("IsVehicleWeapon"):
+            continue
+        label = (((w.get("TranslatedLabel") or {}).get("English")) or "").strip()
+        if not label or label.lower() == "invalid":
+            continue
+        group = w.get("Category") or ""
+        entry = {"name": w["Name"], "label": label,
+                 "category": GROUP_TO_CATEGORY.get(group, ""), "group": group,
+                 "dlc": w.get("DlcName") or ""}
+        if len(w.get("Tints") or []) >= 32:
+            entry["tints"] = "mk2"
+        elif group in TINTABLE_GROUPS:
+            entry["tints"] = "standard"
+        comps = []
+        for c in w.get("Components") or []:
+            comp = {"caption": (((c.get("TranslatedLabel") or {}).get("English")) or c["Name"]).strip(),
+                    "id": c["Name"]}
+            if c.get("IsDefault"):
+                comp["default"] = True
+            comps.append(comp)
+        entry["components"] = comps
+        out.append(entry)
+    out.sort(key=lambda e: (e["category"] == "", e["category"], e["label"].lower()))
+    return out
+
+
+def render_weapons(revision, weapons):
+    """Readable JSON: one weapon header per line, one component per line."""
+    j = lambda x: json.dumps(x, ensure_ascii=False)
+    blocks = []
+    for w in weapons:
+        head = j({k: v for k, v in w.items() if k != "components"})[:-1]
+        if w["components"]:
+            comps = ",\n".join("      " + j(c) for c in w["components"])
+            blocks.append(f'    {head}, "components": [\n{comps}\n    ]}}')
+        else:
+            blocks.append(f'    {head}, "components": []}}')
+    return (f'{{\n  "revision": {revision},\n  "weapons": [\n'
+            + ",\n".join(blocks) + "\n  ]\n}\n")
+
+
 def make_entry(name, caption, dlc, inferred=False):
     e = {"name": name, "caption": caption}
     if dlc:
@@ -310,6 +379,24 @@ def main():
     os.makedirs(args.out, exist_ok=True)
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(render(revision, peds, props))
+
+    # weapons.json: upstream reference, its own file and revision
+    up_weapons = json.load(open(os.path.join(args.upstream, "weapons.json"), encoding="utf-8"))
+    if len(up_weapons) < MIN_UPSTREAM_WEAPONS:
+        sys.exit(f"FAIL: upstream weapons = {len(up_weapons)}, expected at least "
+                 f"{MIN_UPSTREAM_WEAPONS}")
+    weapons = build_weapons(up_weapons)
+    w_path = os.path.join(args.out, "weapons.json")
+    w_rev = 1
+    if os.path.exists(w_path):
+        with open(w_path, encoding="utf-8") as f:
+            prev_w = json.load(f)
+        w_rev = prev_w.get("revision", 0) + (0 if prev_w.get("weapons") == weapons else 1)
+    with open(w_path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(render_weapons(w_rev, weapons))
+    n_comps = sum(len(w["components"]) for w in weapons)
+    print(f"wrote {w_path}: revision {w_rev}, {len(weapons)} weapons, {n_comps} components "
+          f"({os.path.getsize(w_path)} bytes)")
 
     n_peds = sum(len(v) for v in peds.values())
     print(f"wrote {out_path}: revision {revision}, {n_peds} peds "
