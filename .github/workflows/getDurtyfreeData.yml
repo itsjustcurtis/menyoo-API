@@ -40,7 +40,18 @@ jobs:
             /WeaponList.ini
             /peds.json
             /weapons.json
-
+            
+      - name: Checkout Menyoo baseline files
+        uses: actions/checkout@v4
+        with:
+          repository: itsjustcurtis/MenyooSP
+          path: baseline
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /Solution/source/_Build/bin/Release/menyooStuff/PedList.xml
+            /Solution/source/_Build/bin/Release/menyooStuff/PropList.txt
+            
       - name: Detect changes (by content, not commit date)
         id: detect
         run: |
@@ -69,7 +80,7 @@ jobs:
       - name: Build overlay
         id: build
         if: steps.detect.outputs.changed == 'true' && hashFiles('api/scripts/build_overlay.py') != ''
-        run: python api/scripts/build_overlay.py --upstream upstream --out api/data/overlay
+        run: python api/scripts/build_overlay.py --upstream upstream --baseline baseline/Solution/source/_Build/bin/Release/menyooStuff --out api/data/overlay --unknown api/data/unknown_hashes.txt
 
       - name: Record source state
         if: steps.build.outcome == 'success'
