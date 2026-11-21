@@ -1,0 +1,107 @@
+name: Sync DurtyFree data dumps
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Rebuild even if upstream inputs are unchanged'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: durtyfree-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout menyoo-API
+        uses: actions/checkout@v4
+        with:
+          path: api
+
+      # Sparse shallow checkout: no API calls, no rate limits, and we get the commit SHA.
+      - name: Checkout upstream (only the files we use)
+        uses: actions/checkout@v4
+        with:
+          repository: DurtyFree/gta-v-data-dumps
+          path: upstream
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /PedList.ini
+            /ObjectList.ini
+            /WeaponList.ini
+            /peds.json
+            /weapons.json
+
+      - name: Detect changes (by content, not commit date)
+        id: detect
+        run: |
+          set -euo pipefail
+          up_sha=$(git -C upstream rev-parse HEAD)
+          up_date=$(git -C upstream log -1 --format=%cI)
+          inputs=$(find upstream -type f -not -path 'upstream/.git/*' | sort | xargs sha256sum | sha256sum | cut -d' ' -f1)
+          prev=$(jq -r '.inputs_sha256 // ""' api/data/durtyfree/source.json 2>/dev/null || true)
+
+          echo "upstream HEAD: $up_sha ($up_date)"
+          echo "inputs hash:   $inputs"
+          echo "previous hash: ${prev:-<none>}"
+
+          if [ "$inputs" != "$prev" ] || [ "${{ inputs.force }}" = "true" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+          {
+            echo "up_sha=$up_sha"
+            echo "up_date=$up_date"
+            echo "inputs=$inputs"
+          } >> "$GITHUB_OUTPUT"
+
+      # Converter comes next. The guard lets this workflow run as a dry run until it exists.
+      - name: Build overlay
+        id: build
+        if: steps.detect.outputs.changed == 'true' && hashFiles('api/scripts/build_overlay.py') != ''
+        run: python api/scripts/build_overlay.py --upstream upstream --out api/data/overlay
+
+      - name: Record source state
+        if: steps.build.outcome == 'success'
+        run: |
+          mkdir -p api/data/durtyfree
+          jq -n \
+            --arg sha   "${{ steps.detect.outputs.up_sha }}" \
+            --arg date  "${{ steps.detect.outputs.up_date }}" \
+            --arg hash  "${{ steps.detect.outputs.inputs }}" \
+            --arg now   "$(date -u +%FT%TZ)" \
+            '{upstream_sha:$sha, upstream_commit_date:$date, inputs_sha256:$hash, synced_at:$now}' \
+            > api/data/durtyfree/source.json
+
+      # Scheduled workflows get disabled after ~60 days without repo activity.
+      - name: Heartbeat
+        run: |
+          cd api
+          last=$(git log -1 --format=%ct)
+          if [ $(( $(date +%s) - last )) -gt $(( 45*86400 )) ]; then
+            mkdir -p data/durtyfree
+            date -u +%FT%TZ > data/durtyfree/heartbeat.txt
+          fi
+
+      - name: Commit if anything changed
+        run: |
+          cd api
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Sync DurtyFree data (${{ steps.detect.outputs.up_sha }})"
+            git push
+          fi
