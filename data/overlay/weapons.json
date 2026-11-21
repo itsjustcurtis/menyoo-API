@@ -1,0 +1,682 @@
+{
+  "revision": 1,
+  "weapons": [
+    {"name": "WEAPON_ADVANCEDRIFLE", "label": "Advanced Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_ADVANCEDRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_ADVANCEDRIFLE_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Gilded Gun Metal Finish", "id": "COMPONENT_ADVANCEDRIFLE_VARMOD_LUXE"}
+    ]},
+    {"name": "WEAPON_ASSAULTRIFLE", "label": "Assault Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_ASSAULTRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_ASSAULTRIFLE_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_ASSAULTRIFLE_CLIP_03"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MACRO"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_ASSAULTRIFLE_VARMOD_LUXE"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_ASSAULTRIFLE_MK2", "label": "Assault Rifle Mk II", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpgunrunning", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_ASSAULTRIFLE_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_ASSAULTRIFLE_MK2_CLIP_02"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_ASSAULTRIFLE_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_ASSAULTRIFLE_MK2_CLIP_FMJ"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_ASSAULTRIFLE_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_ASSAULTRIFLE_MK2_CLIP_TRACER"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_MK2"},
+      {"caption": "Large Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM_MK2"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP_02"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_AR_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_AR_BARREL_02"}
+    ]},
+    {"name": "WEAPON_BATTLERIFLE", "label": "Battle Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mp2023_02", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_BATTLERIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_BATTLERIFLE_CLIP_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"}
+    ]},
+    {"name": "WEAPON_BULLPUPRIFLE", "label": "Bullpup Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpbusiness2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_BULLPUPRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_BULLPUPRIFLE_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Gilded Gun Metal Finish", "id": "COMPONENT_BULLPUPRIFLE_VARMOD_LOW"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_BULLPUPRIFLE_MK2", "label": "Bullpup Rifle Mk II", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpchristmas2017", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_BULLPUPRIFLE_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_BULLPUPRIFLE_MK2_CLIP_02"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_BULLPUPRIFLE_MK2_CLIP_TRACER"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_BULLPUPRIFLE_MK2_CLIP_INCENDIARY"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_BULLPUPRIFLE_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_BULLPUPRIFLE_MK2_CLIP_FMJ"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_02_MK2"},
+      {"caption": "Medium Scope", "id": "COMPONENT_AT_SCOPE_SMALL_MK2"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_BP_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_BP_BARREL_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP_02"}
+    ]},
+    {"name": "WEAPON_CARBINERIFLE", "label": "Carbine Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_CARBINERIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_CARBINERIFLE_CLIP_02"},
+      {"caption": "Box Magazine", "id": "COMPONENT_CARBINERIFLE_CLIP_03"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "COMPONENT_AT_RAILCOVER_01", "id": "COMPONENT_AT_RAILCOVER_01"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_CARBINERIFLE_VARMOD_LUXE"},
+      {"caption": "COMPONENT_CARBINERIFLE_VARMOD_MICH", "id": "COMPONENT_CARBINERIFLE_VARMOD_MICH"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_CARBINERIFLE_MK2", "label": "Carbine Rifle Mk II", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpgunrunning", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_CARBINERIFLE_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_CARBINERIFLE_MK2_CLIP_02"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_CARBINERIFLE_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_CARBINERIFLE_MK2_CLIP_FMJ"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_CARBINERIFLE_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_CARBINERIFLE_MK2_CLIP_TRACER"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_MK2"},
+      {"caption": "Large Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM_MK2"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP_02"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_CR_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_CR_BARREL_02"}
+    ]},
+    {"name": "WEAPON_COMPACTRIFLE", "label": "Compact Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mplowrider2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_COMPACTRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_COMPACTRIFLE_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_COMPACTRIFLE_CLIP_03"}
+    ]},
+    {"name": "WEAPON_STRICKLER", "label": "El Strickler", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mp2024_02_g9ec", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_STRICKLER_CLIP_01", "default": true},
+      {"caption": "Scope", "id": "COMPONENT_STRICKLER_SIGHT", "default": true},
+      {"caption": "Flashlight", "id": "COMPONENT_STRICKLER_FLSH", "default": true}
+    ]},
+    {"name": "WEAPON_HEAVYRIFLE", "label": "Heavy Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpsecurity", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_HEAVYRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_HEAVYRIFLE_CLIP_02"},
+      {"caption": "Iron Sights", "id": "COMPONENT_HEAVYRIFLE_SIGHT_01", "default": true},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"}
+    ]},
+    {"name": "WEAPON_MILITARYRIFLE", "label": "Military Rifle", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpheist4", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MILITARYRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MILITARYRIFLE_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Iron Sights", "id": "COMPONENT_MILITARYRIFLE_SIGHT_01", "default": true},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"}
+    ]},
+    {"name": "WEAPON_TACTICALRIFLE", "label": "Service Carbine", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpsum2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_TACTICALRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_TACTICALRIFLE_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH_REH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"}
+    ]},
+    {"name": "WEAPON_SPECIALCARBINE", "label": "Special Carbine", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpbusiness", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SPECIALCARBINE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_SPECIALCARBINE_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_SPECIALCARBINE_CLIP_03"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Etched Gun Metal Finish", "id": "COMPONENT_SPECIALCARBINE_VARMOD_LOWRIDER"},
+      {"caption": "COMPONENT_SPECIALCARBINE_VARMOD_XMAS23", "id": "COMPONENT_SPECIALCARBINE_VARMOD_XMAS23"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_SPECIALCARBINE_MK2", "label": "Special Carbine Mk II", "category": "Assault Rifles", "group": "GROUP_RIFLE", "dlc": "mpchristmas2017", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SPECIALCARBINE_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_SPECIALCARBINE_MK2_CLIP_02"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_SPECIALCARBINE_MK2_CLIP_TRACER"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_SPECIALCARBINE_MK2_CLIP_INCENDIARY"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_SPECIALCARBINE_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_SPECIALCARBINE_MK2_CLIP_FMJ"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_MK2"},
+      {"caption": "Large Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM_MK2"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP_02"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_SC_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_SC_BARREL_02"}
+    ]},
+    {"name": "WEAPON_EMPLAUNCHER", "label": "Compact EMP Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mpsecurity", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_EMPLAUNCHER_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_COMPACTLAUNCHER", "label": "Compact Grenade Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mpbiker", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_COMPACTLAUNCHER_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_FIREWORK", "label": "Firework Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mpindependence", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_FIREWORK_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_GRENADELAUNCHER", "label": "Grenade Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_GRENADELAUNCHER_CLIP_01", "default": true},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL"}
+    ]},
+    {"name": "WEAPON_HOMINGLAUNCHER", "label": "Homing Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mpchristmas2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_HOMINGLAUNCHER_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_MINIGUN", "label": "Minigun", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Extended Clip", "id": "COMPONENT_MINIGUN_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_RAILGUNXM3", "label": "Railgun", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mpchristmas3", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_RAILGUNXM3_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_RAILGUN", "label": "Railgun", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "spupgrade", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_RAILGUN_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_RPG", "label": "RPG", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_RPG_CLIP_01", "default": true},
+      {"caption": "COMPONENT_RPG_VARMOD_TVR", "id": "COMPONENT_RPG_VARMOD_TVR"}
+    ]},
+    {"name": "WEAPON_STINGER", "label": "RPG", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_RPG_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_SNOWLAUNCHER", "label": "Snowball Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mp2023_02", "tints": "standard", "components": []},
+    {"name": "WEAPON_GRENADELAUNCHER_SMOKE", "label": "Tear Gas Launcher", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL"}
+    ]},
+    {"name": "WEAPON_RAYMINIGUN", "label": "Widowmaker", "category": "Heavy Weapons", "group": "GROUP_HEAVY", "dlc": "mpchristmas2018", "tints": "standard", "components": [
+      {"caption": "Extended Clip", "id": "COMPONENT_MINIGUN_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_COMBATMG", "label": "Combat MG", "category": "Machine Guns", "group": "GROUP_MG", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_COMBATMG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_COMBATMG_CLIP_02"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Etched Gun Metal Finish", "id": "COMPONENT_COMBATMG_VARMOD_LOWRIDER"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_COMBATMG_MK2", "label": "Combat MG Mk II", "category": "Machine Guns", "group": "GROUP_MG", "dlc": "mpgunrunning", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_COMBATMG_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_COMBATMG_MK2_CLIP_02"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_COMBATMG_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_COMBATMG_MK2_CLIP_FMJ"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_COMBATMG_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_COMBATMG_MK2_CLIP_TRACER"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Medium Scope", "id": "COMPONENT_AT_SCOPE_SMALL_MK2"},
+      {"caption": "Large Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM_MK2"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP_02"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_MG_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_MG_BARREL_02"}
+    ]},
+    {"name": "WEAPON_GUSENBERG", "label": "Gusenberg Sweeper", "category": "Machine Guns", "group": "GROUP_MG", "dlc": "mpvalentines", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_GUSENBERG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_GUSENBERG_CLIP_02"}
+    ]},
+    {"name": "WEAPON_MG", "label": "MG", "category": "Machine Guns", "group": "GROUP_MG", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MG_CLIP_02"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL_02"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_MG_VARMOD_LOWRIDER"}
+    ]},
+    {"name": "WEAPON_RAYCARBINE", "label": "Unholy Hellbringer", "category": "Machine Guns", "group": "GROUP_MG", "dlc": "mpchristmas2018", "tints": "standard", "components": []},
+    {"name": "WEAPON_DAGGER", "label": "Antique Cavalry Dagger", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mphipster", "components": []},
+    {"name": "WEAPON_BAT", "label": "Baseball Bat", "category": "Melee", "group": "GROUP_MELEE", "dlc": "TitleUpdate", "components": [
+      {"caption": "Blagueurs", "id": "COMPONENT_BAT_VARMOD_XM3"},
+      {"caption": "Spatter", "id": "COMPONENT_BAT_VARMOD_XM3_01"},
+      {"caption": "Bullet Holes", "id": "COMPONENT_BAT_VARMOD_XM3_02"},
+      {"caption": "Burger Shot", "id": "COMPONENT_BAT_VARMOD_XM3_03"},
+      {"caption": "Cluckin' Bell", "id": "COMPONENT_BAT_VARMOD_XM3_04"},
+      {"caption": "Fatal Incursion", "id": "COMPONENT_BAT_VARMOD_XM3_05"},
+      {"caption": "Lucha Libre", "id": "COMPONENT_BAT_VARMOD_XM3_06"},
+      {"caption": "Trippy", "id": "COMPONENT_BAT_VARMOD_XM3_07"},
+      {"caption": "Tie-Dye", "id": "COMPONENT_BAT_VARMOD_XM3_08"},
+      {"caption": "Wall", "id": "COMPONENT_BAT_VARMOD_XM3_09"}
+    ]},
+    {"name": "WEAPON_BATTLEAXE", "label": "Battle Axe", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpbiker", "components": []},
+    {"name": "WEAPON_BOTTLE", "label": "Bottle", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpbeach", "components": []},
+    {"name": "WEAPON_CANDYCANE", "label": "Candy Cane", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpchristmas3", "components": []},
+    {"name": "WEAPON_CROWBAR", "label": "Crowbar", "category": "Melee", "group": "GROUP_MELEE", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_FLASHLIGHT", "label": "Flashlight", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mphalloween", "components": [
+      {"caption": "Flashlight", "id": "COMPONENT_FLASHLIGHT_LIGHT", "default": true}
+    ]},
+    {"name": "WEAPON_GOLFCLUB", "label": "Golf Club", "category": "Melee", "group": "GROUP_MELEE", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_HAMMER", "label": "Hammer", "category": "Melee", "group": "GROUP_MELEE", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_HATCHET", "label": "Hatchet", "category": "Melee", "group": "GROUP_MELEE", "dlc": "spupgrade", "components": []},
+    {"name": "WEAPON_KNIFE", "label": "Knife", "category": "Melee", "group": "GROUP_MELEE", "dlc": "TitleUpdate", "components": [
+      {"caption": "Eyes", "id": "COMPONENT_KNIFE_VARMOD_XM3"},
+      {"caption": "Spatter", "id": "COMPONENT_KNIFE_VARMOD_XM3_01"},
+      {"caption": "Flames", "id": "COMPONENT_KNIFE_VARMOD_XM3_02"},
+      {"caption": "Lightning", "id": "COMPONENT_KNIFE_VARMOD_XM3_03"},
+      {"caption": "Pills", "id": "COMPONENT_KNIFE_VARMOD_XM3_04"},
+      {"caption": "Snakeskin", "id": "COMPONENT_KNIFE_VARMOD_XM3_05"},
+      {"caption": "Lucha Libre", "id": "COMPONENT_KNIFE_VARMOD_XM3_06"},
+      {"caption": "Trippy", "id": "COMPONENT_KNIFE_VARMOD_XM3_07"},
+      {"caption": "Tequilya", "id": "COMPONENT_KNIFE_VARMOD_XM3_08"},
+      {"caption": "Orang-O-Tang", "id": "COMPONENT_KNIFE_VARMOD_XM3_09"}
+    ]},
+    {"name": "WEAPON_GARBAGEBAG", "label": "Knife", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpheist", "components": []},
+    {"name": "WEAPON_HANDCUFFS", "label": "Knife", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpheist", "components": []},
+    {"name": "WEAPON_MACHETE", "label": "Machete", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mplowrider", "components": []},
+    {"name": "WEAPON_NIGHTSTICK", "label": "Nightstick", "category": "Melee", "group": "GROUP_MELEE", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_WRENCH", "label": "Pipe Wrench", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpbiker", "components": []},
+    {"name": "WEAPON_POOLCUE", "label": "Pool Cue", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpbiker", "components": []},
+    {"name": "WEAPON_STONE_HATCHET", "label": "Stone Hatchet", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpbattle", "components": []},
+    {"name": "WEAPON_SWITCHBLADE", "label": "Switchblade", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mpapartment", "components": [
+      {"caption": "Default Handle", "id": "COMPONENT_SWITCHBLADE_VARMOD_BASE"},
+      {"caption": "VIP Variant", "id": "COMPONENT_SWITCHBLADE_VARMOD_VAR1"},
+      {"caption": "Bodyguard Variant", "id": "COMPONENT_SWITCHBLADE_VARMOD_VAR2"}
+    ]},
+    {"name": "WEAPON_STUNROD", "label": "The Shocker", "category": "Melee", "group": "GROUP_MELEE", "dlc": "mp2024_01", "components": []},
+    {"name": "WEAPON_APPISTOL", "label": "AP Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_APPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_APPISTOL_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"},
+      {"caption": "Gilded Gun Metal Finish", "id": "COMPONENT_APPISTOL_VARMOD_LUXE"},
+      {"caption": "Record A Finish", "id": "COMPONENT_APPISTOL_VARMOD_SECURITY"}
+    ]},
+    {"name": "WEAPON_CERAMICPISTOL", "label": "Ceramic Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpheist3", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_CERAMICPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_CERAMICPISTOL_CLIP_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_CERAMICPISTOL_SUPP"}
+    ]},
+    {"name": "WEAPON_COMBATPISTOL", "label": "Combat Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_COMBATPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_COMBATPISTOL_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_COMBATPISTOL_VARMOD_LOWRIDER"},
+      {"caption": "COMPONENT_COMBATPISTOL_VARMOD_XMAS23", "id": "COMPONENT_COMBATPISTOL_VARMOD_XMAS23"}
+    ]},
+    {"name": "WEAPON_DOUBLEACTION", "label": "Double-Action Revolver", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpchristmas2017", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_DOUBLEACTION_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_FLAREGUN", "label": "Flare Gun", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpheist", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_FLAREGUN_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_HEAVYPISTOL", "label": "Heavy Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpbusiness", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_HEAVYPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_HEAVYPISTOL_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"},
+      {"caption": "Etched Wood Grip Finish", "id": "COMPONENT_HEAVYPISTOL_VARMOD_LUXE"}
+    ]},
+    {"name": "WEAPON_REVOLVER", "label": "Heavy Revolver", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpapartment", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_REVOLVER_CLIP_01", "default": true},
+      {"caption": "VIP Variant", "id": "COMPONENT_REVOLVER_VARMOD_BOSS"},
+      {"caption": "Bodyguard Variant", "id": "COMPONENT_REVOLVER_VARMOD_GOON"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_REVOLVER_MK2", "label": "Heavy Revolver Mk II", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpchristmas2017", "tints": "mk2", "components": [
+      {"caption": "Default Rounds", "id": "COMPONENT_REVOLVER_MK2_CLIP_01", "default": true},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_REVOLVER_MK2_CLIP_FMJ"},
+      {"caption": "Hollow Point Rounds", "id": "COMPONENT_REVOLVER_MK2_CLIP_HOLLOWPOINT"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_REVOLVER_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_REVOLVER_MK2_CLIP_TRACER"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_MK2"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Compensator", "id": "COMPONENT_AT_PI_COMP_03"}
+    ]},
+    {"name": "WEAPON_MARKSMANPISTOL", "label": "Marksman Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpluxe2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MARKSMANPISTOL_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_NAVYREVOLVER", "label": "Navy Revolver", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpheist3", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_NAVYREVOLVER_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_GADGETPISTOL", "label": "Perico Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpheist4", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_GADGETPISTOL_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_PISTOL", "label": "Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_PISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_PISTOL_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP_02"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_PISTOL_VARMOD_LUXE"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_PISTOL50", "label": "Pistol .50", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_PISTOL50_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_PISTOL50_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Platinum Pearl Deluxe Finish", "id": "COMPONENT_PISTOL50_VARMOD_LUXE"}
+    ]},
+    {"name": "WEAPON_PISTOL_MK2", "label": "Pistol Mk II", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpgunrunning", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_PISTOL_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_PISTOL_MK2_CLIP_02"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_PISTOL_MK2_CLIP_FMJ"},
+      {"caption": "Hollow Point Rounds", "id": "COMPONENT_PISTOL_MK2_CLIP_HOLLOWPOINT"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_PISTOL_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_PISTOL_MK2_CLIP_TRACER"},
+      {"caption": "Mounted Scope", "id": "COMPONENT_AT_PI_RAIL"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP_02"},
+      {"caption": "Compensator", "id": "COMPONENT_AT_PI_COMP"},
+      {"caption": "COMPONENT_PISTOL_MK2_VARMOD_XM3_SLIDE", "id": "COMPONENT_PISTOL_MK2_VARMOD_XM3_SLIDE"},
+      {"caption": "Season's Greetings", "id": "COMPONENT_PISTOL_MK2_VARMOD_XM3"}
+    ]},
+    {"name": "WEAPON_SNSPISTOL", "label": "SNS Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpbeach", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SNSPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_SNSPISTOL_CLIP_02"},
+      {"caption": "Etched Wood Grip Finish", "id": "COMPONENT_SNSPISTOL_VARMOD_LOWRIDER"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_SNSPISTOL_MK2", "label": "SNS Pistol Mk II", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpchristmas2017", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SNSPISTOL_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_SNSPISTOL_MK2_CLIP_02"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_SNSPISTOL_MK2_CLIP_TRACER"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_SNSPISTOL_MK2_CLIP_INCENDIARY"},
+      {"caption": "Hollow Point Rounds", "id": "COMPONENT_SNSPISTOL_MK2_CLIP_HOLLOWPOINT"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_SNSPISTOL_MK2_CLIP_FMJ"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH_03"},
+      {"caption": "Mounted Scope", "id": "COMPONENT_AT_PI_RAIL_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP_02"},
+      {"caption": "Compensator", "id": "COMPONENT_AT_PI_COMP_02"}
+    ]},
+    {"name": "WEAPON_STUNGUN", "label": "Stun Gun", "category": "Pistols", "group": "GROUP_STUNGUN", "dlc": "TitleUpdate", "tints": "standard", "components": []},
+    {"name": "WEAPON_STUNGUN_MP", "label": "Stun Gun", "category": "Pistols", "group": "GROUP_STUNGUN", "dlc": "mpsecurity", "tints": "standard", "components": [
+      {"caption": "COMPONENT_STUNGUN_VARMOD_BAIL", "id": "COMPONENT_STUNGUN_VARMOD_BAIL"}
+    ]},
+    {"name": "WEAPON_RAYPISTOL", "label": "Up-n-Atomizer", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpchristmas2018", "tints": "standard", "components": [
+      {"caption": "Festive tint", "id": "COMPONENT_RAYPISTOL_VARMOD_XMAS18"}
+    ]},
+    {"name": "WEAPON_VINTAGEPISTOL", "label": "Vintage Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mphipster", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_VINTAGEPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_VINTAGEPISTOL_CLIP_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"}
+    ]},
+    {"name": "WEAPON_PISTOLXM3", "label": "WM 29 Pistol", "category": "Pistols", "group": "GROUP_PISTOL", "dlc": "mpchristmas3", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_PISTOLXM3_CLIP_01", "default": true},
+      {"caption": "Suppressor", "id": "COMPONENT_PISTOLXM3_SUPP"}
+    ]},
+    {"name": "WEAPON_ASSAULTSHOTGUN", "label": "Assault Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_ASSAULTSHOTGUN_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_ASSAULTSHOTGUN_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"}
+    ]},
+    {"name": "WEAPON_BULLPUPSHOTGUN", "label": "Bullpup Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_BULLPUPSHOTGUN_CLIP_01", "default": true},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"}
+    ]},
+    {"name": "WEAPON_COMBATSHOTGUN", "label": "Combat Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "mpheist4", "tints": "standard", "components": [
+      {"caption": "Default Shells", "id": "COMPONENT_COMBATSHOTGUN_CLIP_01", "default": true},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"}
+    ]},
+    {"name": "WEAPON_DBSHOTGUN", "label": "Double Barrel Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "mplowrider2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_DBSHOTGUN_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_HEAVYSHOTGUN", "label": "Heavy Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "mplts", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_HEAVYSHOTGUN_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_HEAVYSHOTGUN_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_HEAVYSHOTGUN_CLIP_03"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"}
+    ]},
+    {"name": "WEAPON_PUMPSHOTGUN", "label": "Pump Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_PUMPSHOTGUN_CLIP_01", "default": true},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_SR_SUPP"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_PUMPSHOTGUN_VARMOD_LOWRIDER"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"},
+      {"caption": "Bone Finish", "id": "COMPONENT_PUMPSHOTGUN_VARMOD_SECURITY"},
+      {"caption": "Dildodude Camo", "id": "COMPONENT_PUMPSHOTGUN_VARMOD_XM3"}
+    ]},
+    {"name": "WEAPON_PUMPSHOTGUN_MK2", "label": "Pump Shotgun Mk II", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "mpchristmas2017", "tints": "mk2", "components": [
+      {"caption": "Default Shells", "id": "COMPONENT_PUMPSHOTGUN_MK2_CLIP_01", "default": true},
+      {"caption": "Steel Buckshot Shells", "id": "COMPONENT_PUMPSHOTGUN_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Explosive Slugs", "id": "COMPONENT_PUMPSHOTGUN_MK2_CLIP_EXPLOSIVE"},
+      {"caption": "Flechette Shells", "id": "COMPONENT_PUMPSHOTGUN_MK2_CLIP_HOLLOWPOINT"},
+      {"caption": "Dragon's Breath Shells", "id": "COMPONENT_PUMPSHOTGUN_MK2_CLIP_INCENDIARY"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_MK2"},
+      {"caption": "Medium Scope", "id": "COMPONENT_AT_SCOPE_SMALL_MK2"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_SR_SUPP_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_08"}
+    ]},
+    {"name": "WEAPON_SAWNOFFSHOTGUN", "label": "Sawed-Off Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SAWNOFFSHOTGUN_CLIP_01", "default": true},
+      {"caption": "Gilded Gun Metal Finish", "id": "COMPONENT_SAWNOFFSHOTGUN_VARMOD_LUXE"}
+    ]},
+    {"name": "WEAPON_AUTOSHOTGUN", "label": "Sweeper Shotgun", "category": "Shotguns", "group": "GROUP_SHOTGUN", "dlc": "mpbiker", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_AUTOSHOTGUN_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_HEAVYSNIPER", "label": "Heavy Sniper", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_HEAVYSNIPER_CLIP_01", "default": true},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_LARGE"},
+      {"caption": "Advanced Scope", "id": "COMPONENT_AT_SCOPE_MAX", "default": true},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"},
+      {"caption": "COMPONENT_HEAVYSNIPER_VARMOD_XMAS23", "id": "COMPONENT_HEAVYSNIPER_VARMOD_XMAS23"}
+    ]},
+    {"name": "WEAPON_HEAVYSNIPER_MK2", "label": "Heavy Sniper Mk II", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "mpgunrunning", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_HEAVYSNIPER_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_HEAVYSNIPER_MK2_CLIP_02"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_HEAVYSNIPER_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Explosive Rounds", "id": "COMPONENT_HEAVYSNIPER_MK2_CLIP_EXPLOSIVE"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_HEAVYSNIPER_MK2_CLIP_FMJ"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_HEAVYSNIPER_MK2_CLIP_INCENDIARY"},
+      {"caption": "Zoom Scope", "id": "COMPONENT_AT_SCOPE_LARGE_MK2"},
+      {"caption": "Advanced Scope", "id": "COMPONENT_AT_SCOPE_MAX", "default": true},
+      {"caption": "Night Vision Scope", "id": "COMPONENT_AT_SCOPE_NV"},
+      {"caption": "Thermal Scope", "id": "COMPONENT_AT_SCOPE_THERMAL"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_SR_SUPP_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_08"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_09"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_SR_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_SR_BARREL_02"}
+    ]},
+    {"name": "WEAPON_MARKSMANRIFLE", "label": "Marksman Rifle", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "mplts", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MARKSMANRIFLE_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MARKSMANRIFLE_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_LARGE_FIXED_ZOOM", "default": true},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_MARKSMANRIFLE_VARMOD_LUXE"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_MARKSMANRIFLE_MK2", "label": "Marksman Rifle Mk II", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "mpchristmas2017", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MARKSMANRIFLE_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MARKSMANRIFLE_MK2_CLIP_02"},
+      {"caption": "Armor Piercing Rounds", "id": "COMPONENT_MARKSMANRIFLE_MK2_CLIP_ARMORPIERCING"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_MARKSMANRIFLE_MK2_CLIP_FMJ"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_MARKSMANRIFLE_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_MARKSMANRIFLE_MK2_CLIP_TRACER"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS"},
+      {"caption": "Large Scope", "id": "COMPONENT_AT_SCOPE_MEDIUM_MK2"},
+      {"caption": "Zoom Scope", "id": "COMPONENT_AT_SCOPE_LARGE_FIXED_ZOOM_MK2", "default": true},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP_02"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_MRFL_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_MRFL_BARREL_02"}
+    ]},
+    {"name": "WEAPON_MUSKET", "label": "Musket", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "mpindependence", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MUSKET_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_PRECISIONRIFLE", "label": "Precision Rifle", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "mpsum2", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_PRECISIONRIFLE_CLIP_01", "default": true}
+    ]},
+    {"name": "WEAPON_SNIPERRIFLE", "label": "Sniper Rifle", "category": "Sniper Rifles", "group": "GROUP_SNIPER", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SNIPERRIFLE_CLIP_01", "default": true},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_LARGE", "default": true},
+      {"caption": "Advanced Scope", "id": "COMPONENT_AT_SCOPE_MAX"},
+      {"caption": "Etched Wood Grip Finish", "id": "COMPONENT_SNIPERRIFLE_VARMOD_LUXE"}
+    ]},
+    {"name": "WEAPON_ASSAULTSMG", "label": "Assault SMG", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_ASSAULTSMG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_ASSAULTSMG_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MACRO"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_ASSAULTSMG_VARMOD_LOWRIDER"}
+    ]},
+    {"name": "WEAPON_COMBATPDW", "label": "Combat PDW", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "mpluxe", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_COMBATPDW_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_COMBATPDW_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_COMBATPDW_CLIP_03"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Grip", "id": "COMPONENT_AT_AR_AFGRIP"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_SMALL"}
+    ]},
+    {"name": "WEAPON_MACHINEPISTOL", "label": "Machine Pistol", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "mplowrider", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MACHINEPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MACHINEPISTOL_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_MACHINEPISTOL_CLIP_03"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"}
+    ]},
+    {"name": "WEAPON_MICROSMG", "label": "Micro SMG", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MICROSMG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MICROSMG_CLIP_02"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_PI_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MACRO"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_MICROSMG_VARMOD_LUXE"},
+      {"caption": "Organics Finish", "id": "COMPONENT_MICROSMG_VARMOD_SECURITY"},
+      {"caption": "Dildodude Camo", "id": "COMPONENT_MICROSMG_VARMOD_XM3"},
+      {"caption": "COMPONENT_MICROSMG_VARMOD_FRN", "id": "COMPONENT_MICROSMG_VARMOD_FRN"}
+    ]},
+    {"name": "WEAPON_MINISMG", "label": "Mini SMG", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "mpbiker", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_MINISMG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_MINISMG_CLIP_02"}
+    ]},
+    {"name": "WEAPON_SMG", "label": "SMG", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "TitleUpdate", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SMG_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_SMG_CLIP_02"},
+      {"caption": "Drum Magazine", "id": "COMPONENT_SMG_CLIP_03"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MACRO_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"},
+      {"caption": "Yusuf Amir Luxury Finish", "id": "COMPONENT_SMG_VARMOD_LUXE"},
+      {"caption": "Mk II", "id": "COMPONENT_GUNRUN_MK2_UPGRADE"}
+    ]},
+    {"name": "WEAPON_SMG_MK2", "label": "SMG Mk II", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "mpgunrunning", "tints": "mk2", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_SMG_MK2_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_SMG_MK2_CLIP_02"},
+      {"caption": "Full Metal Jacket Rounds", "id": "COMPONENT_SMG_MK2_CLIP_FMJ"},
+      {"caption": "Hollow Point Rounds", "id": "COMPONENT_SMG_MK2_CLIP_HOLLOWPOINT"},
+      {"caption": "Incendiary Rounds", "id": "COMPONENT_SMG_MK2_CLIP_INCENDIARY"},
+      {"caption": "Tracer Rounds", "id": "COMPONENT_SMG_MK2_CLIP_TRACER"},
+      {"caption": "Flashlight", "id": "COMPONENT_AT_AR_FLSH"},
+      {"caption": "Holographic Sight", "id": "COMPONENT_AT_SIGHTS_SMG"},
+      {"caption": "Small Scope", "id": "COMPONENT_AT_SCOPE_MACRO_02_SMG_MK2"},
+      {"caption": "Medium Scope", "id": "COMPONENT_AT_SCOPE_SMALL_SMG_MK2"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_PI_SUPP"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_01"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_02"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_03"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_04"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_05"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_06"},
+      {"caption": "Muzzle Brake", "id": "COMPONENT_AT_MUZZLE_07"},
+      {"caption": "Default Barrel", "id": "COMPONENT_AT_SB_BARREL_01", "default": true},
+      {"caption": "Heavy Barrel", "id": "COMPONENT_AT_SB_BARREL_02"}
+    ]},
+    {"name": "WEAPON_TECPISTOL", "label": "Tactical SMG", "category": "Submachine Guns", "group": "GROUP_SMG", "dlc": "mp2023_01", "tints": "standard", "components": [
+      {"caption": "Default Clip", "id": "COMPONENT_TECPISTOL_CLIP_01", "default": true},
+      {"caption": "Extended Clip", "id": "COMPONENT_TECPISTOL_CLIP_02"},
+      {"caption": "Suppressor", "id": "COMPONENT_AT_AR_SUPP_02"},
+      {"caption": "Scope", "id": "COMPONENT_AT_SCOPE_MACRO"}
+    ]},
+    {"name": "WEAPON_ACIDPACKAGE", "label": "Acid Package", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "mpchristmas3", "components": []},
+    {"name": "WEAPON_BALL", "label": "Ball", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_BZGAS", "label": "BZ Gas", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_FLARE", "label": "Flare", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_GRENADE", "label": "Grenade", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_BIRD_CRAP", "label": "Grenade", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_MOLOTOV", "label": "Molotov", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_NEWSPAPER", "label": "Newspaper", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "mp2025_02", "components": []},
+    {"name": "WEAPON_PIPEBOMB", "label": "Pipe Bomb", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "mpbiker", "components": []},
+    {"name": "WEAPON_PROXMINE", "label": "Proximity Mine", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "mpchristmas2", "components": []},
+    {"name": "WEAPON_SNOWBALL", "label": "Snowball", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "mpchristmas2", "components": []},
+    {"name": "WEAPON_STICKYBOMB", "label": "Sticky Bomb", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_SMOKEGRENADE", "label": "Tear Gas", "category": "Throwable Weapons", "group": "GROUP_THROWN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_FERTILIZERCAN", "label": "Fertilizer Can", "category": "", "group": "GROUP_PETROLCAN", "dlc": "mpsecurity", "components": []},
+    {"name": "WEAPON_FIREEXTINGUISHER", "label": "Fire Extinguisher", "category": "", "group": "GROUP_FIREEXTINGUISHER", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_HACKINGDEVICE", "label": "Hacking Device", "category": "", "group": "GROUP_HACKINGDEVICE", "dlc": "mp2023_02", "components": []},
+    {"name": "WEAPON_HAZARDCAN", "label": "Hazardous Jerry Can", "category": "", "group": "GROUP_PETROLCAN", "dlc": "mpheist3", "components": []},
+    {"name": "WEAPON_PETROLCAN", "label": "Jerry Can", "category": "", "group": "GROUP_PETROLCAN", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_KNUCKLE", "label": "Knuckle Duster", "category": "", "group": "GROUP_UNARMED", "dlc": "mpluxe2", "components": [
+      {"caption": "Knuckle Duster", "id": "COMPONENT_KNUCKLE_VARMOD_BASE"},
+      {"caption": "The Pimp", "id": "COMPONENT_KNUCKLE_VARMOD_PIMP"},
+      {"caption": "The Ballas", "id": "COMPONENT_KNUCKLE_VARMOD_BALLAS"},
+      {"caption": "The Hustler", "id": "COMPONENT_KNUCKLE_VARMOD_DOLLAR"},
+      {"caption": "The Rock", "id": "COMPONENT_KNUCKLE_VARMOD_DIAMOND"},
+      {"caption": "The Hater", "id": "COMPONENT_KNUCKLE_VARMOD_HATE"},
+      {"caption": "The Lover", "id": "COMPONENT_KNUCKLE_VARMOD_LOVE"},
+      {"caption": "The Player", "id": "COMPONENT_KNUCKLE_VARMOD_PLAYER"},
+      {"caption": "The King", "id": "COMPONENT_KNUCKLE_VARMOD_KING"},
+      {"caption": "The Vagos", "id": "COMPONENT_KNUCKLE_VARMOD_VAGOS"}
+    ]},
+    {"name": "GADGET_NIGHTVISION", "label": "Nightvision Goggles", "category": "", "group": "GROUP_NIGHTVISION", "dlc": "TitleUpdate", "components": []},
+    {"name": "GADGET_PARACHUTE", "label": "Parachute", "category": "", "group": "GROUP_PARACHUTE", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_REMOTESNIPER", "label": "Remote Sniper", "category": "", "group": "", "dlc": "TitleUpdate", "components": []},
+    {"name": "WEAPON_TRANQUILIZER", "label": "Stun Gun", "category": "", "group": "GROUP_TRANQILIZER", "dlc": "mpheist3", "components": []},
+    {"name": "WEAPON_UNARMED", "label": "Unarmed", "category": "", "group": "GROUP_UNARMED", "dlc": "TitleUpdate", "components": []}
+  ]
+}
