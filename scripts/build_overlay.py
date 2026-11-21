@@ -2,9 +2,11 @@
 """
 Build the Menyoo model-name overlay from the DurtyFree data dumps.
 
-The overlay is delta-only: it contains models that exist upstream (or that we
-could infer a name for) but are missing from Menyoo's curated baseline files.
-Memory decides which models exist at runtime; this file only supplies names.
+The output is the FULL list: Menyoo's curated baseline entries (names, captions,
+categories) plus anything upstream has that the baseline lacks, plus names we
+could infer for unresolved hashes. It is self-sufficient, so it does not matter
+how old a user's local menyooStuff files are. Memory decides which models exist
+at runtime; this file only supplies names.
 
 Inputs
   --upstream  checkout of DurtyFree/gta-v-data-dumps (needs peds.json, ObjectList.ini)
@@ -13,11 +15,12 @@ Inputs
               of ped hashes seen in game that no list can name
 
 Output
-  <out>/models.json
+  <out>/models.json (human-readable, one entry per line)
   {"revision": N,
-   "peds":     [[hash, name, caption, dlc, category], ...],
-   "props":    [name, ...],
-   "inferred": [[hash, name, caption, dlc, category], ...]}   # dictionary-guessed names
+   "peds":  {"<Category>": [{"name":..., "caption":..., "dlc":..., "inferred": true}, ...], ...},
+   "props": ["name", ...]}
+  "dlc" is omitted when unknown; "inferred" only appears on dictionary-guessed names.
+  Baseline entries keep their file order; new entries follow, sorted by name.
 
 Output is deterministic (sorted, no timestamps) and `revision` only increments
 when the content changes, so unchanged inputs never produce a commit.
@@ -108,19 +111,20 @@ def read_lines(path):
 
 
 def load_baseline_peds(path):
-    """Returns (category names, set of name hashes, set of lowercase names)."""
+    """Returns (ordered category names, [(category, name, caption), ...])."""
     root = ET.parse(path).getroot()
-    cats, hashes, names = set(), set(), set()
+    cats, entries = [], []
     for cat in root:
         cname = cat.get("name")
-        if cname:
-            cats.add(cname)
+        if not cname:
+            continue
+        if cname not in cats:
+            cats.append(cname)
         for e in cat:
             n = e.get("name")
             if n:
-                hashes.add(joaat(n))
-                names.add(n.lower())
-    return cats, hashes, names
+                entries.append((cname, n, e.get("caption") or ""))
+    return cats, entries
 
 
 def load_upstream_peds(path):
@@ -182,6 +186,31 @@ def search_names(targets, known_names):
 
 # ----------------------------------------------------------------- main ----
 
+def make_entry(name, caption, dlc, inferred=False):
+    e = {"name": name, "caption": caption}
+    if dlc:
+        e["dlc"] = dlc
+    if inferred:
+        e["inferred"] = True
+    return e
+
+
+def render(revision, peds, props):
+    """Readable JSON: one ped / prop per line, stable ordering."""
+    out = ["{", f'  "revision": {revision},', '  "peds": {']
+    cat_blocks = []
+    for cat, entries in peds.items():
+        rows = ",\n".join("      " + json.dumps(e, ensure_ascii=False) for e in entries)
+        cat_blocks.append(f"    {json.dumps(cat)}: [\n{rows}\n    ]")
+    out.append(",\n".join(cat_blocks))
+    out.append("  },")
+    out.append('  "props": [')
+    out.append(",\n".join("    " + json.dumps(p, ensure_ascii=False) for p in props))
+    out.append("  ]")
+    out.append("}")
+    return "\n".join(out) + "\n"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--upstream", required=True)
@@ -191,17 +220,19 @@ def main():
     args = ap.parse_args()
 
     # Baseline (Menyoo's curated files)
-    cats, base_ped_hashes, base_ped_names = load_baseline_peds(
-        os.path.join(args.baseline, "PedList.xml"))
+    cat_order, base_entries = load_baseline_peds(os.path.join(args.baseline, "PedList.xml"))
     base_props = read_lines(os.path.join(args.baseline, "PropList.txt"))
-    base_prop_hashes = {joaat(p) for p in base_props}
+    valid_cats = set(cat_order)
 
     # Upstream
     up_peds = load_upstream_peds(os.path.join(args.upstream, "peds.json"))
     up_objects = read_lines(os.path.join(args.upstream, "ObjectList.ini"))
+    dlc_by_hash = {p["Hash"]: (p.get("DlcName") or "") for p in up_peds}
 
+    base_ped_hashes = {joaat(n) for _, n, _ in base_entries}
+    base_prop_hashes = {joaat(p) for p in base_props}
     print(f"baseline: {len(base_ped_hashes)} peds, {len(base_prop_hashes)} props, "
-          f"{len(cats)} categories")
+          f"{len(cat_order)} categories")
     print(f"upstream: {len(up_peds)} peds, {len(up_objects)} objects")
 
     for label, value, minimum in (
@@ -213,41 +244,59 @@ def main():
         if value < minimum:
             sys.exit(f"FAIL: {label} = {value}, expected at least {minimum}")
 
-    # Peds: upstream entries the baseline lacks
-    peds, resolved_hashes = [], set()
-    for p in up_peds:
-        resolved_hashes.add(p["Hash"])
-        name = p["Name"]
-        if p["Hash"] in base_ped_hashes or denied(name):
+    # Peds: baseline first (file order, first duplicate wins), then additions.
+    peds = {c: [] for c in cat_order}
+    seen = set()
+    for cat, name, caption in base_entries:
+        h = joaat(name)
+        if h in seen:
             continue
-        caption = ((p.get("TranslatedDirectorName") or {}).get("English") or "").strip()
-        peds.append([p["Hash"], name, caption, p.get("DlcName") or "",
-                     categorize(name, cats)])
-    peds.sort(key=lambda e: (e[4], e[1].lower()))
+        seen.add(h)
+        peds[cat].append(make_entry(name, caption, dlc_by_hash.get(h)))
 
-    # Props: upstream names the baseline lacks
-    props = sorted({o for o in up_objects if joaat(o) not in base_prop_hashes},
-                   key=str.lower)
+    additions = {}  # category -> [entry]
+    n_upstream_new = 0
+    for p in up_peds:
+        name = p["Name"]
+        if p["Hash"] in seen or denied(name):
+            continue
+        seen.add(p["Hash"])
+        caption = ((p.get("TranslatedDirectorName") or {}).get("English") or "").strip()
+        additions.setdefault(categorize(name, valid_cats), []).append(
+            make_entry(name, caption, p.get("DlcName")))
+        n_upstream_new += 1
 
     # Inferred: dictionary guesses for hashes nothing else can name
-    inferred = []
+    n_inferred = 0
     if args.unknown and os.path.exists(args.unknown):
         unknown = load_unknown(args.unknown)
-        resolved_hashes |= base_ped_hashes | base_prop_hashes | {joaat(o) for o in up_objects}
-        todo = unknown - resolved_hashes
+        resolved = (seen | base_prop_hashes | {joaat(o) for o in up_objects}
+                    | {p["Hash"] for p in up_peds})
+        todo = unknown - resolved
         print(f"unknown hashes: {len(unknown)} listed, {len(todo)} unresolved")
         if todo:
             t0 = time.time()
-            known = base_ped_names | {p["Name"].lower() for p in up_peds}
+            known = {n.lower() for _, n, _ in base_entries} | {p["Name"].lower() for p in up_peds}
             found = search_names(todo, known)
             print(f"dictionary search: {len(found)}/{len(todo)} resolved in "
                   f"{time.time() - t0:.1f}s")
             for h, name in found.items():
                 if not denied(name):
-                    inferred.append([h, name, "", "", categorize(name, cats)])
-            inferred.sort(key=lambda e: (e[4], e[1].lower()))
+                    additions.setdefault(categorize(name, valid_cats), []).append(
+                        make_entry(name, "", "", inferred=True))
+                    n_inferred += 1
 
-    content = {"peds": peds, "props": props, "inferred": inferred}
+    for cat, entries in additions.items():
+        entries.sort(key=lambda e: e["name"].lower())
+        peds.setdefault(cat, []).extend(entries)
+    peds = {c: v for c, v in peds.items() if v}  # keeps baseline category order
+
+    # Props: baseline + upstream, deduped by hash, sorted
+    by_hash = {}
+    for name in base_props + up_objects:
+        by_hash.setdefault(joaat(name), name)
+    props = sorted(by_hash.values(), key=str.lower)
+    n_props_new = len(by_hash) - len(base_prop_hashes)
 
     # Revision only bumps when content changes
     out_path = os.path.join(args.out, "models.json")
@@ -255,17 +304,17 @@ def main():
     if os.path.exists(out_path):
         with open(out_path, encoding="utf-8") as f:
             prev = json.load(f)
-        prev_rev = prev.get("revision", 0)
-        prev_content = {k: prev.get(k) for k in content}
-        revision = prev_rev if prev_content == content else prev_rev + 1
+        same = prev.get("peds") == peds and prev.get("props") == props
+        revision = prev.get("revision", 0) + (0 if same else 1)
 
     os.makedirs(args.out, exist_ok=True)
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
-        f.write(json.dumps({"revision": revision, **content}, separators=(",", ":")) + "\n")
+        f.write(render(revision, peds, props))
 
-    print(f"wrote {out_path}: revision {revision}, {len(peds)} peds, "
-          f"{len(props)} props, {len(inferred)} inferred "
-          f"({os.path.getsize(out_path)} bytes)")
+    n_peds = sum(len(v) for v in peds.values())
+    print(f"wrote {out_path}: revision {revision}, {n_peds} peds "
+          f"(+{n_upstream_new} upstream, +{n_inferred} inferred), {len(props)} props "
+          f"(+{n_props_new}), {os.path.getsize(out_path)} bytes")
 
 
 if __name__ == "__main__":
