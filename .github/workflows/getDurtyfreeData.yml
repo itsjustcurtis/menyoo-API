@@ -38,6 +38,7 @@ jobs:
             /PedList.ini
             /ObjectList.ini
             /WeaponList.ini
+            /weapons.json
             /peds.json
             /weapons.json
             
